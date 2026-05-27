@@ -32,6 +32,10 @@ int main() {
     if (unit == 'm' || unit == 'M') {
         cout << "Enter the wind speed in miles/hour: ";
         cin >> mph;
+        if (cin.fail()) {
+            cout << "Invalid wind speed. Please enter a numeric value." << endl;
+            return 0;
+        }
         
         //convert to km/h
         kmh = mph / KM_TO_MILES; 
@@ -39,6 +43,10 @@ int main() {
     else if (unit == 'k' || unit == 'K') {
         cout << "Enter the wind speed in km/hour: ";
         cin >> kmh;
+        if (cin.fail()) {
+            cout << "Invalid wind speed. Please enter a numeric value." << endl;
+            return 0;
+        }
         
         //convert to mph
         mph = kmh * KM_TO_MILES;  

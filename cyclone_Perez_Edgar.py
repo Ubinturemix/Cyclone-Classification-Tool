@@ -15,10 +15,18 @@ unit = input("Do you want to enter miles/hour or km/hour? (type m or k): ").stri
 
 # get speed and convert it
 if unit == "m":
-    mph = float(input("Enter the wind speed in miles/hour: "))
+    try:
+        mph = float(input("Enter the wind speed in miles/hour: ").strip())
+    except ValueError:
+        print("Invalid wind speed. Please enter a numeric value.")
+        exit()
     kmh = mph / KM_TO_MILES
 elif unit == "k":
-    kmh = float(input("Enter the wind speed in km/hour: "))
+    try:
+        kmh = float(input("Enter the wind speed in km/hour: ").strip())
+    except ValueError:
+        print("Invalid wind speed. Please enter a numeric value.")
+        exit()
     mph = kmh * KM_TO_MILES
 else:
     print("Invalid input. Please type 'm' or 'k'.")
